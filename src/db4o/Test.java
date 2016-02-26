@@ -1,6 +1,7 @@
 package db4o;
 
 import com.db4o.Db4oEmbedded;
+import com.db4o.ObjectContainer;
 import com.db4o.config.EmbeddedConfiguration;
 
 /**
@@ -12,9 +13,10 @@ public class Test {
 
         EmbeddedConfiguration configuration = Db4oEmbedded.newConfiguration();
         configuration.common().objectClass(Jugador.class).cascadeOnUpdate(true);
+        ObjectContainer db = Db4oEmbedded.openFile("src/db/football.db4o");
 
-
-
+//        db.query();
+        db.close();
 
     }
 
